@@ -1,0 +1,75 @@
+body,p,div {
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+#cont {
+	margin: 0 auto;
+	width: 375px;
+}
+
+.feed {
+	border-bottom: 1px solid #D0D0D0;
+
+}
+#feedimg{
+	display: none;
+}
+
+/* 
+Animated skeleton screen using CSS.
+
+Create shapes using gradients that simulate solids.
+
+Use `:empty` pseduo-class to show skeleton screen background only while container has no content (ex: for the "loading" state). When content is added to the container element, the pseudo-class selector won't match anymore and the skeleton screen will be removed automatically; no need to toggle a separate class on the container.
+
+See: https://developer.mozilla.org/en-US/docs/Web/CSS/:empty
+
+Animating one layer of the background which is a tilted linear gradient with white in the middle to achieve shine effect.
+*/
+	.demo:empty {
+    margin: auto;
+		height: 100px; /* change height to see repeat-y behavior */
+		margin: 10px;
+    
+		background-image:
+			linear-gradient( #F1F1F1 100px, transparent 0 ),
+			linear-gradient( 100deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 80% ),
+			linear-gradient( #F1F1F1 12px, transparent 0 ),
+			linear-gradient( #F1F1F1 12px, transparent 0 ),
+			linear-gradient( #F1F1F1 9px, transparent 0 );
+
+		background-repeat: repeat-y;
+
+		background-size:
+		    100px 200px,
+			100px 200px, /* highlight */
+			300px 200px,
+			300px 200px,
+			90px 200px;
+
+		background-position:
+			0 0, /* circle */
+			0 0, /* highlight */
+			110px 0,
+			110px 20px,
+			110px 50px;
+
+		animation: shine 1s infinite;
+	}
+
+	@keyframes shine {
+		to {
+			background-position:
+				0 0,
+				100% 0, /* move highlight to right */
+				110px 0,
+				110px 20px,
+				110px 50px;
+		}
+	}
