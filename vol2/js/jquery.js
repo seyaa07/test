@@ -1,7 +1,5 @@
 $(function() {
 	$('.js-hover').hover(function(){
-		$('.js-menu').toggle();
+		$('.js-menu',this).toggle();
 	});
-
-
 });
